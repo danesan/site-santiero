@@ -1,0 +1,26 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+*:Zone.Identifier
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Dependências e ambientes (caso sejam usados no futuro)
+node_modules/
+.venv/
+venv/
+__pycache__/
+
+# Variáveis de ambiente e segredos
+.env
+.env.*
+
+# Logs e temporários
+*.log
+tmp/
+.cache/
