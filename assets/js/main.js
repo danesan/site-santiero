@@ -23,10 +23,9 @@ if (toggle && menu) {
 const ano = document.getElementById('ano');
 if (ano) ano.textContent = new Date().getFullYear();
 
-// Formulário de contato: monta a mensagem e abre no WhatsApp ou no e-mail
+// Formulário de contato: monta a mensagem e abre no WhatsApp
 // (o GitHub Pages não processa formulários, então não há envio para servidor)
 const WHATSAPP = '5592984375226';
-const EMAIL = 'contato@santiero.com.br';
 const form = document.getElementById('form-contato');
 
 if (form) {
@@ -46,17 +45,12 @@ if (form) {
     }
     erro.hidden = true;
 
-    const linhas = [`Olá! Meu nome é ${nome}.`];
+    const linhas = [`Olá! Meu nome é ${nome}. Vim pelo site da Santiero.`];
     if (campo('empresa')) linhas.push(`Empresa: ${campo('empresa')}`);
     if (campo('telefone')) linhas.push(`Telefone: ${campo('telefone')}`);
-    linhas.push('', mensagem);
+    linhas.push('', `Processo que gostaria de melhorar: ${mensagem}`);
     const texto = linhas.join('\n');
 
-    if (event.submitter?.dataset.canal === 'email') {
-      const assunto = `Contato pelo site — ${nome}`;
-      window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(texto)}`;
-    } else {
-      window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
-    }
+    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
   });
 }

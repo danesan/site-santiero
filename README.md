@@ -7,7 +7,7 @@ HTML/CSS puro, sem etapa de build, hospedado no GitHub Pages.
 ## Estrutura
 
 ```
-index.html            Página única: serviços, problemas, como trabalhamos, exemplos, sobre, contato
+index.html            Página única: problemas, serviços, exemplos, como trabalhamos, por que a Santiero, sobre, FAQ, contato
 404.html              Página de erro
 assets/css/style.css  Estilos (cores e fontes da marca em :root)
 assets/js/main.js     Menu mobile, ano do rodapé e formulário de contato
@@ -97,7 +97,7 @@ dig www.santiero.com.br +short
 
 Já incluído no site:
 - Título, descrição e URL canônica em cada página
-- Dados estruturados (schema.org `Organization`) em JSON-LD
+- Dados estruturados (schema.org `ProfessionalService` e `FAQPage`) em JSON-LD
 - Open Graph (prévia bonita ao compartilhar no WhatsApp/LinkedIn)
 - `robots.txt` e `sitemap.xml`
 - HTML semântico, carregamento rápido, responsivo e acessível
@@ -116,7 +116,7 @@ Depois de publicado:
 ## Formulário de contato
 
 O GitHub Pages não processa formulários. O formulário da seção Contato monta a mensagem e abre
-o WhatsApp ou o e-mail do visitante já preenchidos (ver `assets/js/main.js`). Se no futuro
+o WhatsApp já preenchido (ver `assets/js/main.js`). Se no futuro
 quiser receber direto no e-mail sem depender do visitante, dá para usar um serviço como
 Web3Forms ou Formspree.
 
@@ -133,7 +133,7 @@ Mantenha nome, telefone e site **idênticos** no perfil, no site e nas redes soc
 
 ## Pendências de conteúdo
 
-- [ ] Quando houver clientes, transformar os "Exemplos de soluções" da home em cases reais
+- [ ] Quando houver clientes, transformar os exemplos "Na prática" da home em cases reais
       (pode ser sem o nome do cliente, ex.: "distribuidora em Manaus")
 - [ ] (Opcional) CNPJ no rodapé
 - [ ] Criar a página no LinkedIn/Instagram e adicionar os links no rodapé e em `"sameAs"` no
