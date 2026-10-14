@@ -1,16 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 250 410 340" fill="none" stroke="#12ac52" stroke-width="22" stroke-linecap="round">
-  <path d="M85 377h50c40 0 55-95 105-95h125"/>
-  <path d="M120 447h55c45 0 65-104 115-104h75M398 343h25"/>
-  <path d="M176 512h50c45 0 65-89 115-89h52"/>
-  <path d="M234 565h30c35 0 50-60 85-60h59"/>
-  <g fill="#12ac52" stroke="none">
-    <circle cx="85" cy="377" r="20"/>
-    <circle cx="295" cy="282" r="20"/>
-    <circle cx="75" cy="445" r="19"/>
-    <circle cx="122" cy="512" r="19"/>
-    <circle cx="176" cy="512" r="19"/>
-    <circle cx="393" cy="423" r="20"/>
-    <circle cx="234" cy="565" r="19"/>
-    <circle cx="408" cy="505" r="19"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 250 410 340"><defs><linearGradient id="sg" x1="55" y1="0" x2="430" y2="0" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#059669"/><stop offset="1" stop-color="#22C55E"/></linearGradient></defs>
+  <g fill="none" stroke="url(#sg)" stroke-width="22" stroke-linecap="round">
+    <path d="M85 377h50c40 0 55-95 105-95h125"/>
+    <path d="M120 447h55c45 0 65-104 115-104h75M398 343h25"/>
+    <path d="M176 512h50c45 0 65-89 115-89h52"/>
+    <path d="M234 565h30c35 0 50-60 85-60h59"/>
+  </g>
+  <g fill="url(#sg)">
+    <circle cx="85" cy="377" r="20"/><circle cx="295" cy="282" r="20"/>
+    <circle cx="75" cy="445" r="19"/><circle cx="122" cy="512" r="19"/>
+    <circle cx="176" cy="512" r="19"/><circle cx="393" cy="423" r="20"/>
+    <circle cx="234" cy="565" r="19"/><circle cx="408" cy="505" r="19"/>
   </g>
 </svg>

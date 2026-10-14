@@ -20,16 +20,26 @@ sitemap.xml           Mapa do site para buscadores
 
 ## Identidade visual
 
-Baseada na assinatura de e-mail da empresa:
+Segue o manual "Conceito 2 — Tecnologia e Conexão".
 
-| Uso | Cor |
-|---|---|
-| Verde da marca (logo, botões, ícones) | `#12AC52` |
-| Verde para texto pequeno sobre branco | `#0B7F3C` |
-| Verde claro (detalhes, texto sobre fundo escuro) | `#88E0A9` |
-| Grafite (títulos, fundos escuros) | `#101C25` |
+| Paleta | Cor | Uso no site |
+|---|---|---|
+| Verde moderno | `#22C55E` | Botões (com texto grafite escuro), ícones, destaques e textos sobre fundo escuro |
+| Esmeralda | `#059669` | Degradê do símbolo, números e ícones sobre fundo claro |
+| Esmeralda escuro | `#047857` | Textos verdes pequenos sobre fundo claro (o verde puro não tem contraste suficiente) |
+| Grafite | `#1F2933` | Títulos e logotipo |
+| Grafite escuro | `#111827` | Fundos escuros (topo e contato) |
+| Cinza claro | `#F3F4F6` | Seções alternadas |
+| Branco | `#FFFFFF` | Fundo principal |
 
-Fonte: **Montserrat** (Google Fonts). O símbolo de circuito está em `assets/img/logo-mark.svg`.
+Fonte: **Montserrat** (Google Fonts). As cores ficam em `:root` no `assets/css/style.css`.
+
+Logotipos em `assets/img/`:
+- `logo-horizontal.svg`: logotipo principal (fundo claro)
+- `logo-horizontal-white.svg`: versão para fundo escuro
+- `logo-mark.svg`: símbolo isolado (também é o favicon)
+- `logo-mark-white.svg`: símbolo branco (ícone de app)
+- `logo.png`, `apple-touch-icon.png`, `og-image.png`: versões em PNG
 
 ## Rodar localmente
 
