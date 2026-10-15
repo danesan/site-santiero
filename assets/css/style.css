@@ -101,14 +101,18 @@ p { margin: 0 0 1em; }
 .nav a:not(.btn) { color: var(--ink); text-decoration: none; font-weight: 600; font-size: .92rem; }
 .nav a:not(.btn):hover { color: var(--green-text); }
 
-.menu-toggle { display: none; background: none; border: 0; padding: 8px; cursor: pointer; }
-.menu-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; transition: transform .2s, opacity .2s; }
+.menu-toggle {
+  display: none; width: 44px; height: 44px; margin-right: -10px; padding: 0;
+  flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+  background: none; border: 0; cursor: pointer;
+}
+.menu-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); transition: transform .2s, opacity .2s; }
 .menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 @media (max-width: 1080px) {
-  .menu-toggle { display: block; }
+  .menu-toggle { display: flex; }
   .brand img { height: 34px; }
   .nav {
     position: absolute; top: 72px; left: 0; right: 0;
@@ -206,10 +210,13 @@ p { margin: 0 0 1em; }
 .problems strong { display: block; color: var(--ink); margin-bottom: 4px; }
 .problems span { color: var(--muted); font-size: .95rem; }
 .callout {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px 28px;
   margin: 32px 0 0; padding: 22px 26px; border-radius: var(--radius);
   background: var(--dark); color: #fff; font-size: 1.08rem; font-weight: 600;
 }
+.callout p { margin: 0; }
 .callout strong { color: var(--green); }
+.callout .btn { flex-shrink: 0; }
 
 /* Como trabalhamos: linha numerada (horizontal no desktop, vertical no celular) */
 .steps {
@@ -253,31 +260,25 @@ p { margin: 0 0 1em; }
 .example-before .example-label { color: var(--muted); }
 .example-after .example-label { color: var(--green-text); }
 
-/* Por que a Santiero (faixa de confiança) */
-.trust {
+/* Sobre (faixa escura) */
+.section-dark {
   color: var(--on-dark);
   background: radial-gradient(ellipse at 100% 0%, rgba(34,197,94,.14), transparent 50%), var(--dark);
 }
-.trust h2 { color: #fff; }
-.trust .eyebrow { color: var(--green); }
-.trust-list {
-  list-style: none; padding: 0; margin: 0;
-  display: grid; gap: 28px;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-}
-.trust-list li { border-top: 2px solid var(--green); padding-top: 18px; }
-.trust-list strong { display: block; color: #fff; margin-bottom: 6px; }
-.trust-list span { font-size: .93rem; }
-
-/* Sobre */
+.section-dark h2 { color: #fff; }
+.section-dark .eyebrow { color: var(--green); }
 .about { display: grid; gap: 48px; grid-template-columns: 1.3fr 1fr; align-items: center; }
 .signature {
-  background: var(--bg-alt); border-left: 4px solid var(--green); border-radius: var(--radius);
+  background: rgba(255,255,255,.05); border-left: 4px solid var(--green); border-radius: var(--radius);
   padding: clamp(28px, 4vw, 44px);
 }
 .signature img { width: 64px; height: auto; margin-bottom: 18px; }
-.signature p { margin: 0; font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 800; line-height: 1.25; letter-spacing: -0.02em; color: var(--ink); }
-.signature span { display: block; color: var(--emerald); }
+.signature p { margin: 0; font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 800; line-height: 1.25; letter-spacing: -0.02em; color: #fff; }
+.signature span { display: block; color: var(--green); }
+.about-points { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 16px; }
+.about-points li { border-left: 2px solid var(--green); padding-left: 16px; }
+.about-points strong { display: block; color: #fff; }
+.about-points span { font-size: .93rem; }
 @media (max-width: 860px) { .about { grid-template-columns: 1fr; } }
 
 /* Perguntas frequentes */
@@ -335,9 +336,10 @@ a.contact-item:hover strong { color: var(--green); }
   width: 58px; height: 58px; border-radius: 50%;
   display: grid; place-items: center;
   background: #25d366; box-shadow: 0 8px 24px rgba(0,0,0,.2);
-  transition: transform .2s;
+  transition: transform .2s, opacity .2s, visibility .2s;
 }
 .wa-float:hover { transform: scale(1.07); }
+.wa-float.is-hidden { opacity: 0; transform: translateY(16px); pointer-events: none; visibility: hidden; transition: opacity .2s, transform .2s, visibility .2s; }
 .wa-float svg { width: 30px; height: 30px; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
 
 /* Rodapé */
@@ -349,10 +351,78 @@ a.contact-item:hover strong { color: var(--green); }
 .site-footer p + p { margin-top: 4px; }
 .site-footer strong { color: #fff; }
 .site-footer .footer-tagline { color: var(--green); font-weight: 600; }
-.footer-nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 0 22px; }
+.footer-nav a { display: inline-block; padding: 11px 0; }
 .site-footer a { color: rgba(255,255,255,.85); text-decoration: none; }
 .site-footer a:hover { color: var(--green); }
-@media (max-width: 600px) { .site-footer { padding-bottom: 96px; } }
+
+/* Carrossel (exemplos): deslizável no celular, grade normal no desktop */
+.carousel-dots { display: none; }
+@media (max-width: 860px) {
+  .carousel {
+    display: flex; gap: 14px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 20px;
+    margin: 0 -20px; padding: 4px 20px 8px;
+    scrollbar-width: none;
+  }
+  .carousel::-webkit-scrollbar { display: none; }
+  .carousel > * { flex: 0 0 min(86%, 380px); scroll-snap-align: start; }
+  .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+  .carousel-dots span { width: 8px; height: 8px; border-radius: 50%; background: #c7ccd3; transition: background .2s, width .2s; }
+  .carousel-dots span.active { width: 22px; border-radius: 4px; background: var(--emerald); }
+}
+
+/* Celular: layout mais compacto ------------------------------------------- */
+@media (max-width: 600px) {
+  .hero { padding: 48px 0 56px; }
+  .hero-actions { margin-top: 24px; gap: 12px; }
+  .section { padding: 48px 0; }
+  .section-header { margin-bottom: 28px; }
+  .grid { gap: 16px; }
+
+  /* Botões na largura toda, mais fáceis de tocar */
+  .hero-actions .btn, .contact-actions .btn, .form-actions .btn { flex: 1 1 100%; text-align: center; }
+
+  /* Problemas */
+  .problems { gap: 10px; }
+  .problems li { padding: 14px 16px; }
+  .problems span { font-size: .9rem; line-height: 1.6; }
+  .callout { margin-top: 20px; padding: 18px 20px; font-size: 1rem; flex-direction: column; align-items: stretch; }
+  .callout .btn { text-align: center; }
+
+  /* Serviços: ícone ao lado do rótulo e do título */
+  .card { padding: 22px 20px; display: grid; grid-template-columns: auto 1fr; column-gap: 14px; align-items: center; }
+  .card-icon { width: 44px; height: 44px; margin: 0; grid-row: span 2; align-self: start; }
+  .card-icon svg { width: 22px; height: 22px; }
+  .card .pillar { margin: 0; }
+  .card h3 { margin: 0; }
+  .card > p:not(.pillar), .card .checklist { grid-column: 1 / -1; }
+  .card > p:not(.pillar) { margin: 14px 0 12px; }
+  .subblocks { gap: 16px; margin-top: 16px; grid-template-columns: 1fr; }
+  .subblock { display: grid; grid-template-columns: auto 1fr; gap: 0 14px; align-items: center; padding: 20px; }
+  .subblock > div:not(.card-icon) { display: contents; }
+  .subblock h3 { margin: 0; }
+  .subblock p { grid-column: 1 / -1; margin-top: 12px; }
+
+  /* Exemplos */
+  .example { padding: 20px; }
+  .example-after { margin-top: 28px; }
+
+  /* Como trabalhamos */
+  .steps { gap: 20px; }
+
+  /* Sobre */
+  .about { gap: 24px; }
+  .signature { display: flex; align-items: center; gap: 16px; padding: 20px; }
+  .signature img { width: 44px; margin: 0; flex-shrink: 0; }
+  .signature p { font-size: 1.25rem; }
+
+  /* FAQ e contato */
+  .faq summary { padding: 16px 18px; }
+  .faq details p { padding: 0 18px 16px; }
+  .contact-grid { gap: 32px; }
+  .contact-actions { margin-top: 20px; gap: 12px; }
+}
 
 /* Página 404 */
 .notfound { min-height: 80vh; display: grid; place-items: center; text-align: center; padding: 80px 20px; }
@@ -361,5 +431,6 @@ a.contact-item:hover strong { color: var(--green); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .carousel { scroll-behavior: auto; }
   * { transition: none !important; }
 }

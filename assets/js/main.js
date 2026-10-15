@@ -54,3 +54,36 @@ if (form) {
     window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
   });
 }
+
+// Carrossel de exemplos (celular): indicadores de posição
+document.querySelectorAll('.carousel').forEach((carousel) => {
+  const cards = [...carousel.children];
+  const dots = document.createElement('div');
+  dots.className = 'carousel-dots';
+  dots.setAttribute('aria-hidden', 'true');
+  cards.forEach(() => dots.appendChild(document.createElement('span')));
+  carousel.after(dots);
+
+  const marcar = () => {
+    const passo = cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : 1;
+    const noFim = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 2;
+    const atual = noFim ? cards.length - 1 : Math.round(carousel.scrollLeft / passo);
+    [...dots.children].forEach((dot, i) => dot.classList.toggle('active', i === atual));
+  };
+  carousel.addEventListener('scroll', marcar, { passive: true });
+  marcar();
+});
+
+// Botão flutuante do WhatsApp: some quando o contato ou o rodapé estão na tela,
+// para não cobrir o formulário nem repetir os botões que já estão ali
+const waFloat = document.querySelector('.wa-float');
+const alvos = document.querySelectorAll('#contato, .site-footer');
+
+if (waFloat && alvos.length && 'IntersectionObserver' in window) {
+  const visiveis = new Set();
+  const observer = new IntersectionObserver((entradas) => {
+    entradas.forEach((e) => (e.isIntersecting ? visiveis.add(e.target) : visiveis.delete(e.target)));
+    waFloat.classList.toggle('is-hidden', visiveis.size > 0);
+  });
+  alvos.forEach((alvo) => observer.observe(alvo));
+}

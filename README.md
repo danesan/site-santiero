@@ -7,7 +7,7 @@ HTML/CSS puro, sem etapa de build, hospedado no GitHub Pages.
 ## Estrutura
 
 ```
-index.html            Página única: problemas, serviços, exemplos, como trabalhamos, por que a Santiero, sobre, FAQ, contato
+index.html            Página única: problemas, serviços, exemplos, como trabalhamos, sobre, FAQ, contato
 404.html              Página de erro
 assets/css/style.css  Estilos (cores e fontes da marca em :root)
 assets/js/main.js     Menu mobile, ano do rodapé e formulário de contato
